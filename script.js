@@ -1,17 +1,20 @@
-var inpt1 = document.getElementById('inpt1') ; 
-var inpt2 = document.getElementById('inpt2');
-var btn = document.getElementById('btn');
-var enter = document.getElementById('enter');
+const darkModeButton = document.getElementById('dark-mode');
+const lightModeButton = document.getElementById('light-mode');
+const systemModeButton = document.getElementById('system-mode');
 
-btn.addEventListener('click' , function(){
-    let rndmNumber = Number(inpt1.value)  +  Math.random() * Number(inpt2.value - inpt1.value) ; 
-    if(inpt1.value === inpt2.value){
-        alert("Both values are same , Change one of the value ") ; 
-        return ;
+function applyTheme(theme) {
+    document.body.className = theme;
+    const container = document.querySelector('.container');
+    container.className = 'container ' + theme;
+}
+
+darkModeButton.addEventListener('click', () => applyTheme('dark-mode'));
+lightModeButton.addEventListener('click', () => applyTheme('light-mode'));
+systemModeButton.addEventListener('click', () => {
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (prefersDarkScheme.matches) {
+        applyTheme('dark-mode');
+    } else {
+        applyTheme('light-mode');
     }
-    enter.innerText = Math.round(rndmNumber) ; 
-    console.log(rndmNumber) ; 
-    console.log(inpt1.value) ; 
-    console.log(inpt2.value) ; 
-
-})
+});
