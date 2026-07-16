@@ -2,6 +2,9 @@ var inpt1 = document.getElementById('inpt1') ;
 var inpt2 = document.getElementById('inpt2');
 var btn = document.getElementById('btn');
 var enter = document.getElementById('enter');
+var darkModeBtn = document.getElementById('dark-mode');
+var lightModeBtn = document.getElementById('light-mode');
+var systemModeBtn = document.getElementById('system-mode');
 
 btn.addEventListener('click' , function(){
     let rndmNumber = Number(inpt1.value)  +  Math.random() * Number(inpt2.value - inpt1.value) ; 
@@ -13,5 +16,18 @@ btn.addEventListener('click' , function(){
     console.log(rndmNumber) ; 
     console.log(inpt1.value) ; 
     console.log(inpt2.value) ; 
-
 })
+
+darkModeBtn.addEventListener('click', function() {
+    document.body.classList.add('dark-mode');
+});
+
+lightModeBtn.addEventListener('click', function() {
+    document.body.classList.remove('dark-mode');
+});
+
+systemModeBtn.addEventListener('click', function() {
+    // Implement system mode logic here
+    // For now, we will just set to light mode
+    document.body.classList.remove('dark-mode');
+});
