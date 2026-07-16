@@ -1,73 +1,56 @@
-
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg,#dbccd7,#9392ab);
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:0;
-}
-
-.container{
-    background:white;
-    padding:40px;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
-
-}
-
-#heading{
-    margin-right: 200px;
-    justify-items: center;
-}
-
-#heading1 , #heading2{
-    font-size:55px;
-    color:#2a2a2c;
-    margin-right: 200px;
+    background: linear-gradient(135deg, #dbccd7, #9392ab);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 0;
-    margin: 0
-;
+    margin: 0;
+    transition: background 0.5s;
 }
 
-#internval{
-    margin-bottom:25px;
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: background 0.5s, color 0.5s;
 }
 
-.inputs{
-    display:flex;
-    gap:10px;
-    justify-content:center;
-    margin-bottom:20px;
+.pink-theme {
+    background: #FFF5FA;
+    color: #2a2a2c;
 }
 
-input{
-    padding:10px;
-    width:120px;
-    font-size:16px;
-    border-radius:6px;
-    border:1px solid #ccc;
+.pink-theme .container {
+    background: #FF4FA3;
 }
 
-button{
-    padding:10px 20px;
-    font-size:16px;
-    border:none;
-    background:#8389a2;
-    color:white;
-    border-radius:6px;
-    cursor:pointer;
-    transition:0.2s;
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background: #8389a2;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-button:hover{
-    background:#b6b7c1;
+button:hover {
+    background: #b6b7c1;
 }
 
-#enter{
-    font-size:24px;
-    color:#333;
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FF4FA3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    transition: opacity 0.5s;
 }
