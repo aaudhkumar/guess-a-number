@@ -13,5 +13,40 @@ btn.addEventListener('click' , function(){
     console.log(rndmNumber) ; 
     console.log(inpt1.value) ; 
     console.log(inpt2.value) ; 
-
 })
+
+// Theme Toggle Functionality
+var darkModeBtn = document.getElementById('dark-mode');
+var lightModeBtn = document.getElementById('light-mode');
+var systemModeBtn = document.getElementById('system-mode');
+
+// Function to apply dark mode
+function applyDarkMode() {
+    document.body.classList.add('dark-mode');
+    document.querySelector('.container').classList.add('dark-mode');
+    document.querySelectorAll('button').forEach(button => button.classList.add('dark-mode'));
+}
+
+// Function to apply light mode
+function applyLightMode() {
+    document.body.classList.remove('dark-mode');
+    document.querySelector('.container').classList.remove('dark-mode');
+    document.querySelectorAll('button').forEach(button => button.classList.remove('dark-mode'));
+}
+
+// Function to apply system mode
+function applySystemMode() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        applyDarkMode();
+    } else {
+        applyLightMode();
+    }
+}
+
+// Event Listeners for theme buttons
+darkModeBtn.addEventListener('click', applyDarkMode);
+lightModeBtn.addEventListener('click', applyLightMode);
+systemModeBtn.addEventListener('click', applySystemMode);
+
+// Apply system mode on initial load
+applySystemMode();
